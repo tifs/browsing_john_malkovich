@@ -42,19 +42,24 @@ $(document).ready(function(){
     // var pText = $('p').text().split(/([_\W])/);
 
   var malkovich = function() {
-    var wordsArr = $(this).text().split(" ");
-    // console.log(wordsArr);
-    var malkArray = wordsArr.map(function(singleWord) {
-      if (singleWord.length > 5) {
-        return "Malkovich";
-      } else if (singleWord.length <= 5 && singleWord >= 4) {
-        return "Malko";
-      } else {
-        return "Mal";
+    var john = "malkovich";
+    var characters = $(this).text().split("");
+    var counter = 0;
+    for (var i = 0; i < characters.length; i++) {
+      var key = characters[i].charCodeAt(0);
+      var uppercase = key >= 65 && key <= 90;
+      var lowercase = key >= 97 && key <= 122;
+      if (uppercase || lowercase) {
+        var portal = john[counter % john.length];
+        if (uppercase) {
+          portal = portal.toUpperCase();
+        }
+        counter++;
+        console.log(portal);
+        characters[i] = portal;
       }
-    });
-    // console.log(malkArray);
-    $(this).text(malkArray.join(" "));
+    }
+    $(this).text(characters.join(""));
   };
 
    var allH = $('h1,h2,h3,h4,h5,h6');
