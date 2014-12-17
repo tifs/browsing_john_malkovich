@@ -94,8 +94,10 @@ $(document).ready(function(){
     // make an array of malkovich img src urls and shuffle them
       // }
   var allImg = $('img');
-  allImg.each(function() {
-    $('img').attr("src", malkImages[Math.floor(Math.random()*67)]);
+  allImg.each(function(key,val) {
+    $(this).attr("src", malkImages[Math.floor(Math.random()*malkImages.length)]);
+    console.log("key ", key);
+    console.log("val ", val);
   });
 
 
@@ -131,6 +133,15 @@ $(document).ready(function(){
 
 
     var allP = $('p');
+    allP.each(malkovich);
+
+    var allA = $('a');
+    allP.each(malkovich);
+
+    var allSpan = $('span');
+    allP.each(malkovich);
+
+    var allLi = $('li');
     allP.each(malkovich);
 
     // console.log(allP.text().split(" "));

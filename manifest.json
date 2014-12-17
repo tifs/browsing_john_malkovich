@@ -7,7 +7,7 @@
 
   "browser_action": {
     "name": "Mouseover to inflate",
-    "default_icon": "bjm_logo1_19_off.png"
+    "default_icon": "bjm_logo2_19_off.png"
   },
 
   "background": {
