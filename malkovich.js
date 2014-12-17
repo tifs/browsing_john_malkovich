@@ -41,44 +41,28 @@ $(document).ready(function(){
     // // splits along any spaces and non-letters (numbers, punctuation, symbols, etc.)
     // var pText = $('p').text().split(/([_\W])/);
 
+  var malkovich = function() {
+    var wordsArr = $(this).text().split(" ");
+    // console.log(wordsArr);
+    var malkArray = wordsArr.map(function(singleWord) {
+      if (singleWord.length > 5) {
+        return "Malkovich";
+      } else if (singleWord.length <= 5 && singleWord >= 4) {
+        return "Malko";
+      } else {
+        return "Mal";
+      }
+    });
+    // console.log(malkArray);
+    $(this).text(malkArray.join(" "));
+  };
 
    var allH = $('h1,h2,h3,h4,h5,h6');
-    allH.each(function() {
-      // console.log(this);
-      var wordsArr = $(this).text().split(" ");
-      // console.log(wordsArr);
-      var malkArray = wordsArr.map(function(singleWord) {
-        if (singleWord.length > 5) {
-          return "Malkovich";
-        } else if (singleWord.length <= 5 && singleWord >= 4) {
-          return "Malko";
-        } else {
-          return "Mal";
-        }
-      });
-      // console.log(malkArray);
-      $(this).text(malkArray.join(" "));
-    });
+    allH.each(malkovich);
 
 
     var allP = $('p');
-    allP.each(function() {
-      // console.log(this);
-      var wordsArr = $(this).text().split(" ");
-      // console.log(wordsArr);
-      var malkArray = wordsArr.map(function(singleWord) {
-        if (singleWord.length > 5) {
-          return "Malkovich";
-        } else if (singleWord.length <= 5 && singleWord >= 4) {
-          return "Malko";
-        } else {
-          return "Mal";
-        }
-      });
-      // console.log(malkArray);
-      $(this).text(malkArray.join(" "));
-    });
-
+    allP.each(malkovich);
 
     // console.log(allP.text().split(" "));
     // console.log(pArray);
