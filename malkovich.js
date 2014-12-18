@@ -74,28 +74,9 @@ $(document).ready(function(){
   ];
 
 
-
-
-  // TARGET ANY TEXT
-  // SPLIT PARAGRAPHS ETC. INTO WORDS
-  // MEASURE LENGTH OF WORDS
-  // SELECT IT BY LENGTH OF THE WORD
-  // REPLACE CHARACTERS IN ORDER => "Mal ko vich malkovich malko vich"
-  // 1 CHAR => 0
-  // 2 CHAR => 0
-  // LEAVE NUMBERS, PUNCTUATION, AND CAPITALIZATION ALONE
-
-  // MAYBE SELECT ENDINGS LIKE -ING -ED -ION TO CREATE FUNNIER WORDS
-  // REPLACE WITH SOME FORM OF "MALKOVICH"
-
-  // TARGET ANY IMAGE
-  // REPLACE WITH SOME IMAGE OF MALKOVICH
-      // REPLACE IMAGE
-    // make an array of malkovich img src urls and shuffle them
-      // }
   var allImg = $('img');
   allImg.each(function(key,val) {
-    $(this).attr("src", malkImages[Math.floor(Math.random()*malkImages.length)]);
+    $(this).attr("src", malkImages[Math.floor(Math.random()*malkImages.length)],"border-image-repeat", "repeat", "width", "100%");
     console.log("key ", key);
     console.log("val ", val);
   });
@@ -115,6 +96,9 @@ $(document).ready(function(){
       var key = characters[i].charCodeAt(0);
       var uppercase = key >= 65 && key <= 90;
       var lowercase = key >= 97 && key <= 122;
+      var punctuation = key == 46 || key == 33 || key == 63 || key == 39 || key == 34 || key >= 145 && key <= 151;
+      var numbers = key >= 48 && key <= 57;
+      var space = key == 32;
       if (uppercase || lowercase) {
         var portal = john[counter % john.length];
         if (uppercase) {
@@ -123,7 +107,19 @@ $(document).ready(function(){
         counter++;
         console.log(portal);
         characters[i] = portal;
-      }
+      } else if (punctuation) {
+        counter = 0;
+      } else if (numbers) {
+        counter = 0;
+      } // else if (space) {
+      //   if (counter >= 0 && counter <= 2) {
+      //   counter = 3;
+      //   } else if (counter == 3 || counter == 4) {
+      //     counter = 4;
+      //   } else if (counter >= 6 && counter <=8) {
+      //     counter = 0;
+      //   }
+      // }
     }
     $(this).text(characters.join(""));
   };
@@ -143,33 +139,4 @@ $(document).ready(function(){
 
     var allLi = $('li');
     allP.each(malkovich);
-
-    // console.log(allP.text().split(" "));
-    // console.log(pArray);
-    // pArray.forEach(function (pWord) {
-    //   // console.log(pWord);
-    //   var length = pWord.length;
-    //   if(length> 5) {
-    //     pWord = "hahahah";
-    //   }
-
-      // var length = pLength.length;
-      // console.log(length);
-      // if (length > 5) {
-      //   pLength = "Malkovich";
-      // }
-      // }
-      // $('p').text().join(" ") = pArray;
-      // } elsif (pLength <= 5 && pLength >= 4); {
-      //   $(this).replaceWith("Malko");
-      // } elsif (pLength <= 3); {
-      //   $(this).replaceWith("Mal");
-      // }
-
-    // });
-    // console.log(pArray);
-
-
-
 });
-

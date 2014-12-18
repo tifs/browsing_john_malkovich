@@ -23,3 +23,4 @@ chrome.browserAction.onClicked.addListener(function(activeTab) {
 });
 
 // jersey turnpike http://www.youtube.com/watch?v=Q6Fuxkinhug&t=1m27s  // until 1.55
+// reload page
