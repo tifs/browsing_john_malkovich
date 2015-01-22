@@ -1,4 +1,5 @@
 var toggle = false;
+var malkovichTime;
 
 chrome.browserAction.onClicked.addListener(function(activeTab) {
   // chrome.browserAction.setIcon(object details, function callback)
@@ -7,6 +8,13 @@ chrome.browserAction.onClicked.addListener(function(activeTab) {
       chrome.browserAction.setIcon({path: "bjm_logo_19_off.png", tabId:activeTab.id});
       chrome.tabs.executeScript(null, {file: "jquery-1.11.1.min.js"});
       chrome.tabs.executeScript(null, {file: "malkovich.js"});
+      malkovichTime = setInterval(function() {
+        chrome.tabs.executeScript(null, {
+          code: "location.reload()"
+        });
+      }, 5000);
+      clearInterval(malkovichTime);
+      // chrome.tabs.reload();
       // = setTimeout(function(){
       //   chrome.browserAction.setIcon({path: "bjm_19_off.png", tabId:activeTab.id});
       //   chrome.tabs.executeScript(null, {file: "reset.js"});

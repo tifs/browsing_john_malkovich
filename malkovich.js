@@ -111,15 +111,15 @@ $(document).ready(function(){
         counter = 0;
       } else if (numbers) {
         counter = 0;
-      } // else if (space) {
-      //   if (counter >= 0 && counter <= 2) {
-      //   counter = 3;
-      //   } else if (counter == 3 || counter == 4) {
-      //     counter = 4;
+      } else if (space) {
+        // if (counter > 0 && counter < 3) {
+        // counter = 3;
+        // } else if (counter == 3) {
+        //   counter = 5;
       //   } else if (counter >= 6 && counter <=8) {
       //     counter = 0;
-      //   }
-      // }
+        // }
+      }
     }
     $(this).text(characters.join(""));
   };
