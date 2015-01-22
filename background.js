@@ -13,7 +13,7 @@ chrome.browserAction.onClicked.addListener(function(activeTab) {
           code: "location.reload()"
         });
       }, 5000);
-      clearInterval(malkovichTime);
+      // clearInterval(malkovichTime);
       // chrome.tabs.reload();
       // = setTimeout(function(){
       //   chrome.browserAction.setIcon({path: "bjm_19_off.png", tabId:activeTab.id});
