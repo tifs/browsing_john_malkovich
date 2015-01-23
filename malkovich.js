@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
-  // $("body").prepend("<img id='malkovich_1' preload='auto' src='http://www.malkovich.com/jpg'/>");
+  // // prepend the video, but need to hide it somehow
+  // $("body").prepend("<video id='turnpike' preload='auto' src='http://www.youtube.com/watch?v=Q6Fuxkinhug' type='video/mp4'></video>");
 
   var malkImages = [
     "https://www.nbc.com/sites/nbcunbc/files/files/images/2014/4/21/2014_0418_Crossbones_Bio_01_John-Malkovich_FL.jpg",
@@ -124,19 +125,23 @@ $(document).ready(function(){
     $(this).text(characters.join(""));
   };
 
-   var allH = $('h1,h2,h3,h4,h5,h6');
-    allH.each(malkovich);
+  // // play the turnpike clip once everything else happens
+  // var turnpikeVid = document.getElementById('turnpike');
+  // turnpikeVid.play();
+
+  var allH = $('h1,h2,h3,h4,h5,h6');
+  allH.each(malkovich);
 
 
-    var allP = $('p');
-    allP.each(malkovich);
+  var allP = $('p');
+  allP.each(malkovich);
 
-    var allA = $('a');
-    allP.each(malkovich);
+  var allA = $('a');
+  allP.each(malkovich);
 
-    var allSpan = $('span');
-    allP.each(malkovich);
+  var allSpan = $('span');
+  allP.each(malkovich);
 
-    var allLi = $('li');
-    allP.each(malkovich);
+  var allLi = $('li');
+  allP.each(malkovich);
 });
