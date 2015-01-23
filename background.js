@@ -12,8 +12,10 @@ chrome.browserAction.onClicked.addListener(function(activeTab) {
         chrome.tabs.executeScript(null, {
           code: "location.reload()"
         });
+        clearInterval(malkovichTime);
       }, 5000);
-      // clearInterval(malkovichTime);
+    }
+
       // chrome.tabs.reload();
       // = setTimeout(function(){
       //   chrome.browserAction.setIcon({path: "bjm_19_off.png", tabId:activeTab.id});
@@ -21,7 +23,6 @@ chrome.browserAction.onClicked.addListener(function(activeTab) {
       //   // 15 minutes in Malkovich's head/browser
       //   }, 900000);
 
-    }
     else{
       chrome.browserAction.setIcon({path: "bjm_logo_19_off.png", tabId:activeTab.id});
       // var elem = document.getElementsByTagName("script");
