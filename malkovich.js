@@ -2,6 +2,10 @@ $(document).ready(function(){
 
   // // prepend the video, but need to hide it somehow
   // $("body").prepend("<video id='turnpike' preload='auto' src='http://www.youtube.com/watch?v=Q6Fuxkinhug' type='video/mp4'></video>");
+  $("body").prepend("<audio id='bjm_audio' preload='auto' src='https://s3-us-west-1.amazonaws.com/tifsprojects/browsing_john_malkovich/bjm_audio.mp3?X-Amz-Date=20150227T221906Z&X-Amz-Expires=300&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Signature=91e3727d7fbc47a84a13e1f133ed912eeaba12c266cab0dc36eaa9f5bb8d43c1&X-Amz-Credential=ASIAI555XJH7OUF6MI6Q/20150227/us-west-1/s3/aws4_request&X-Amz-SignedHeaders=Host&x-amz-security-token=AQoDYXdzEDcagAJPAxLMaa00WUO9Gu6mAShTcpEo4QdygBLW8QZEOX4BYTAUATsB4CFPTmy5OXGVvW%2B6DhdU%2BNHXYXobz1DOovSAO7IG2Ox4Ot2nPiP1trncxH7eSO6AbnUji8x7fNoSXct%2B/WXHDoNMYVlAN8RsN1W5BfHCdoZAFfGLh9L5Rove4fFLnV/Ndsx4ac9APi%2BbckszIj1qhTm00YELJjWiFRLJlzEisr3DFziD0/X7Jp0Q1AUVbGKQPEvnC/GKXNiLBl%2Bxc1diV%2BGd89SESeFygrSgl%2BvbnVmqJF3ca4RJGBRGLk5mRqwb8O6Yq3UhooA2c%2BbQbJYG3a7I5h9gMUd2zuL4IPnUw6cF'</audio>");
+
+  var bjmAudio = document.getElementById('bjm_audio');
+  bjmAudio.play();
 
   var malkImages = [
     "https://www.nbc.com/sites/nbcunbc/files/files/images/2014/4/21/2014_0418_Crossbones_Bio_01_John-Malkovich_FL.jpg",

@@ -13,7 +13,7 @@ chrome.browserAction.onClicked.addListener(function(activeTab) {
           code: "location.reload()"
         });
         clearInterval(malkovichTime);
-      }, 15000);
+      }, 35000);
     }
 
       // chrome.tabs.reload();
