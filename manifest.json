@@ -34,5 +34,5 @@
     "http://*/*",
     "activeTab",
     "pageCapture"
-  ],
-};
+  ]
+}

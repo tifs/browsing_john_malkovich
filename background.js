@@ -1,6 +1,7 @@
 var toggle = false;
 var malkovichTime;
 
+// listens for the bjm button to be clicked
 chrome.browserAction.onClicked.addListener(function(activeTab) {
   // chrome.browserAction.setIcon(object details, function callback)
   toggle = !toggle;
@@ -8,6 +9,7 @@ chrome.browserAction.onClicked.addListener(function(activeTab) {
       chrome.browserAction.setIcon({path: "bjm_logo_19_off.png", tabId:activeTab.id});
       chrome.tabs.executeScript(null, {file: "jquery-1.11.1.min.js"});
       chrome.tabs.executeScript(null, {file: "malkovich.js"});
+      // reloads the original page after being malkoviched for a certain time
       malkovichTime = setInterval(function() {
         chrome.tabs.executeScript(null, {
           code: "location.reload()"

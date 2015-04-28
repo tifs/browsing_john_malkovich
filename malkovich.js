@@ -1,12 +1,13 @@
 $(document).ready(function(){
 
-  // // prepend the video, but need to hide it somehow
-  // $("body").prepend("<video id='turnpike' preload='auto' src='http://www.youtube.com/watch?v=Q6Fuxkinhug' type='video/mp4'></video>");
+  // prepends the jersey turnpike audio, so it plays quickly
   $("body").prepend("<audio id='bjm_audio' preload='auto' src='https://s3-us-west-1.amazonaws.com/tifsprojects/browsing_john_malkovich/bjm_audio.mp3?X-Amz-Date=20150227T221906Z&X-Amz-Expires=300&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Signature=91e3727d7fbc47a84a13e1f133ed912eeaba12c266cab0dc36eaa9f5bb8d43c1&X-Amz-Credential=ASIAI555XJH7OUF6MI6Q/20150227/us-west-1/s3/aws4_request&X-Amz-SignedHeaders=Host&x-amz-security-token=AQoDYXdzEDcagAJPAxLMaa00WUO9Gu6mAShTcpEo4QdygBLW8QZEOX4BYTAUATsB4CFPTmy5OXGVvW%2B6DhdU%2BNHXYXobz1DOovSAO7IG2Ox4Ot2nPiP1trncxH7eSO6AbnUji8x7fNoSXct%2B/WXHDoNMYVlAN8RsN1W5BfHCdoZAFfGLh9L5Rove4fFLnV/Ndsx4ac9APi%2BbckszIj1qhTm00YELJjWiFRLJlzEisr3DFziD0/X7Jp0Q1AUVbGKQPEvnC/GKXNiLBl%2Bxc1diV%2BGd89SESeFygrSgl%2BvbnVmqJF3ca4RJGBRGLk5mRqwb8O6Yq3UhooA2c%2BbQbJYG3a7I5h9gMUd2zuL4IPnUw6cF'</audio>");
 
+  // targets the turnpike audio by id and plays it before the rest of the function runs
   var bjmAudio = document.getElementById('bjm_audio');
   bjmAudio.play();
 
+  // a whole bunch of beautiful malkoviches
   var malkImages = [
     "https://www.nbc.com/sites/nbcunbc/files/files/images/2014/4/21/2014_0418_Crossbones_Bio_01_John-Malkovich_FL.jpg",
     "http://celebritybase.info/wp-content/uploads/2013/11/282.jpg",
@@ -78,26 +79,23 @@ $(document).ready(function(){
     "http://www.thestar.com/content/dam/thestar/news/gta/2013/06/08/actor_john_malkovich_comes_to_rescue_of_bleeding_man_in_toronto/malkovichshot.jpg"
   ];
 
-
+  // targets all images on the screen
   var allImg = $('img');
   allImg.each(function(key,val) {
+    // runs a function that replaces the source of every image with a malkovich image that's full width
     $(this).attr("src", malkImages[Math.floor(Math.random()*malkImages.length)],"border-image-repeat", "repeat", "width", "100%");
     console.log("key ", key);
     console.log("val ", val);
   });
 
-
-    // $('p,h1,h2,h3,h4,h5,h6,span')
-
-
-    // // splits along any spaces and non-letters (numbers, punctuation, symbols, etc.)
-    // var pText = $('p').text().split(/([_\W])/);
-
+  // function that turns all text into "malkovich"
   var malkovich = function() {
     var john = "malkovich";
+    // extracts text from the page and splits it into individual characters
     var characters = $(this).text().split("");
     var counter = 0;
     for (var i = 0; i < characters.length; i++) {
+      // character codes for spaces and non-letters (from http://www.ascii.cl/htmlcodes.htm)
       var key = characters[i].charCodeAt(0);
       var uppercase = key >= 65 && key <= 90;
       var lowercase = key >= 97 && key <= 122;
@@ -106,16 +104,20 @@ $(document).ready(function(){
       var space = key == 32;
       if (uppercase || lowercase) {
         var portal = john[counter % john.length];
+        // if a character is uppercase, make sure it stay uppercase
         if (uppercase) {
           portal = portal.toUpperCase();
         }
         counter++;
         console.log(portal);
         characters[i] = portal;
+      // resets to beginning of "malkovich" if there's punctuation
       } else if (punctuation) {
         counter = 0;
+      // follows any number with "malkovich"
       } else if (numbers) {
         counter = 0;
+      // sets the "malkovich" counter depending on the space's current count
       } else if (space) {
         // if (counter > 0 && counter < 3) {
         // counter = 3;
@@ -126,26 +128,27 @@ $(document).ready(function(){
         // }
       }
     }
+    // returns all malkoviched characters and joins them without a space
     $(this).text(characters.join(""));
   };
 
-  // // play the turnpike clip once everything else happens
-  // var turnpikeVid = document.getElementById('turnpike');
-  // turnpikeVid.play();
-
+  // runs malkovich function on all h elements
   var allH = $('h1,h2,h3,h4,h5,h6');
   allH.each(malkovich);
 
-
+  // runs malkovich function on p elemnts
   var allP = $('p');
   allP.each(malkovich);
 
+  // runs malkovich function on link elements
   var allA = $('a');
   allP.each(malkovich);
 
+  // runs malkovich function on span elements
   var allSpan = $('span');
   allP.each(malkovich);
 
+  // runs malkovich function on list items
   var allLi = $('li');
   allP.each(malkovich);
 });
