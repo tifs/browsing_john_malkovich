@@ -9,29 +9,13 @@ chrome.browserAction.onClicked.addListener(function(activeTab) {
       chrome.browserAction.setIcon({path: "bjm_logo_19_off.png", tabId:activeTab.id});
       chrome.tabs.executeScript(null, {file: "jquery-1.11.1.min.js"});
       chrome.tabs.executeScript(null, {file: "malkovich.js"});
-      // reloads the original page after being malkoviched for a certain time
-      malkovichTime = setInterval(function() {
-        chrome.tabs.executeScript(null, {
-          code: "location.reload()"
-        });
-        clearInterval(malkovichTime);
-      }, 35000);
+      chrome.alarms.create("firstAlarm", {delayInMinutes: 1.0});
+      chrome.alarms.onAlarm.addListener(function(alarm) {
+        // sadly, this timed page reload doesn't work right now :(
+        chrome.tabs.reload();
+      });
     }
-
-      // chrome.tabs.reload();
-      // = setTimeout(function(){
-      //   chrome.browserAction.setIcon({path: "bjm_19_off.png", tabId:activeTab.id});
-      //   chrome.tabs.executeScript(null, {file: "reset.js"});
-      //   // 15 minutes in Malkovich's head/browser
-      //   }, 900000);
-
     else{
       chrome.browserAction.setIcon({path: "bjm_logo_19_off.png", tabId:activeTab.id});
-      // var elem = document.getElementsByTagName("script");
-      // elem[0].src = "";
-      chrome.tabs.executeScript(null, {file: "reset.js"});
     }
 });
-
-// jersey turnpike http://www.youtube.com/watch?v=Q6Fuxkinhug&t=1m27s  // until 1.55
-// reload page
