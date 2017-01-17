@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   // prepends the jersey turnpike audio, so it plays quickly
-  $("body").prepend("<audio id='bjm_audio' preload='auto' src='https://s3-us-west-1.amazonaws.com/tifsprojects/browsing_john_malkovich/bjm_audio.mp3'</audio>");
+  $("body").prepend("<audio id='bjm_audio' preload='auto' src='https://s3-us-west-1.amazonaws.com/tifsprojects/browsing_john_malkovich/bjm_audio_full.mp3'</audio>");
 
   // targets the turnpike audio by id and plays it before the rest of the function runs
   var bjmAudio = document.getElementById('bjm_audio');
@@ -132,15 +132,9 @@ $(document).ready(function(){
       // follows any number with "malkovich"
       } else if (numbers) {
         counter = 0;
-      // sets the "malkovich" counter depending on the space's current count
+      // resets any new word to start from the beginning of "malkovich"
       } else if (space) {
-        // if (counter > 0 && counter < 3) {
-        // counter = 3;
-        // } else if (counter == 3) {
-        //   counter = 5;
-      //   } else if (counter >= 6 && counter <=8) {
-      //     counter = 0;
-        // }
+          counter = 0;
       }
     }
     // returns all malkoviched characters and joins them without a space
