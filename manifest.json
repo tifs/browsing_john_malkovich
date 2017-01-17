@@ -1,14 +1,15 @@
 {
   "manifest_version": 2,
   "name": "Browsing John Malkovich",
-  "description": "Just like the movie, but malkovich malkovich malkovich! / turning your browser into malkovich malkovich malkovich!",
-  "version": "1.0",
+  "description": "Ever wanted to browse someone else?",
+  "version": "1.0.1",
   "homepage_url": "http://tifslama.com/",
 
   "icons": {
     "16": "bjm_logo_19_off.png",
     "48": "bjm_logo_48.png",
-    "128": "bjm_logo_128.png" },
+    "128": "bjm_logo_128.png"
+  },
 
   "browser_action": {
     "name": "Mouseover to inflate",
@@ -20,13 +21,16 @@
     "persistent": false
   },
 
-  "content_scripts": {
+  "content_scripts": [
+    {
         "matches": ["http://*/*", "https://*/*"],
         "css": ["style.css"],
-        "js": ["malkovich.js"],
-    },
+        "js": ["jquery-1.11.1.min.js"]
+    }
+  ],
 
   "permissions": [
+    "alarms",
     "background",
     "tabs",
     "notifications",
