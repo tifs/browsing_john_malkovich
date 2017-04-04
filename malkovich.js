@@ -94,13 +94,13 @@ $(document).ready(function(){
     "https://s3-us-west-1.amazonaws.com/tifsprojects/browsing_john_malkovich/Malko_83.jpg",
   ];
 
-  // targets all images on the screen
+  // targets images on the screen
   var allImg = $('img');
   allImg.each(function(key,val) {
     // runs a function that replaces the source of every image with a malkovich image that's full width
     $(this).attr("src", malkImages[Math.floor(Math.random()*malkImages.length)],"border-image-repeat", "repeat", "width", "100%");
-    console.log("key ", key);
-    console.log("val ", val);
+    // console.log("key ", key);
+    // console.log("val ", val);
   });
 
   // function that turns all text into "malkovich"
